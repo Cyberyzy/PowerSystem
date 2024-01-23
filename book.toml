@@ -1,0 +1,9 @@
+[book]
+authors = ["cyberyzy"]
+language = "en"
+multilingual = false
+src = "src"
+title = "PowerSystem"
+
+[output.html]
+mathjax-support = true
