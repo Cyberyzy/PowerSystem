@@ -1,41 +1,34 @@
-name: mdbook
+name: Deploy
 on:
   push:
     branches:
       - master
 
 jobs:
-  mdbook_build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
-    - name: 安装 mdbook
-      run: |
-        mkdir mdbook
-        curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.14/mdbook-v0.4.14-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
-        echo `pwd`/mdbook >> $GITHUB_PATH
-    - name: 编译 mdbook
-      run: |
-        mdbook build
-    - name: 文件处理
-      run: |
-        git worktree add gh-pages
-        #mkdir  gh-pages
-        cd  gh-pages
-        echo "删除 ref 以避免保留历史记录"
-        rm -rf *
-        mv ../book/* .
-        echo "处理独立域名的绑定 CNAME文件"
-        echo "dev.leiyanhui.com" >> CNAME
-    - name: 部署
-      run: |
-        git config user.name "joyanhui"
-        git config user.email "joyanhui@qq.com"
-        git init
-        #git checkout -b main
-        git add -A
-        git commit -m "自动生成  $GITHUB_SHA to gh-pages"
-        echo "推送 "
-        git push origin gh-pages -f -q
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Install mdbook
+        run: |
+          mkdir mdbook
+          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.14/mdbook-v0.4.14-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
+          echo `pwd`/mdbook >> $GITHUB_PATH
+      - name: Deploy GitHub Pages
+        run: |
+          # This assumes your book is in the root of your repository.
+          # Just add a `cd` here if you need to change to another directory.
+          mdbook build
+          git worktree add gh-pages
+          git config user.name "Deploy from CI"
+          git config user.email ""
+          cd gh-pages
+          # Delete the ref to avoid keeping history.
+          git update-ref -d refs/heads/gh-pages
+          rm -rf *
+          mv ../book/* .
+          git add .
+          git commit -m "Deploy $GITHUB_SHA to gh-pages"
+          git push --force --set-upstream origin gh-pages
