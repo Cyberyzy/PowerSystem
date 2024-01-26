@@ -1,0 +1,367 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>电力系统学习指导</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <!-- MathJax -->
+        <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="PE.html"><strong aria-hidden="true">1.</strong> 电力电子</a></li><li class="spacer"></li><li class="chapter-item expanded "><a href="PowerSystem.html"><strong aria-hidden="true">2.</strong> 电力系统</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_8.html"><strong aria-hidden="true">2.1.</strong> 第8讲-稳态大作业</a></li><li class="chapter-item expanded "><a href="chapter_9.html"><strong aria-hidden="true">2.2.</strong> 历年试题选编</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">电力系统学习指导</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="电力电子"><a class="header" href="#电力电子">电力电子</a></h1>
+<h2 id="电力拖动"><a class="header" href="#电力拖动">电力拖动</a></h2>
+<h3 id="直流调速"><a class="header" href="#直流调速">直流调速</a></h3>
+<h3 id="交流调速"><a class="header" href="#交流调速">交流调速</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><div style="break-before: page; page-break-before: always;"></div><h1 id="稳态大作业实现思路"><a class="header" href="#稳态大作业实现思路">稳态大作业实现思路</a></h1>
+<h2 id="潮流计算"><a class="header" href="#潮流计算">潮流计算</a></h2>
+<h3 id="牛拉法"><a class="header" href="#牛拉法">牛拉法</a></h3>
+<p>要点是数据类型的转换和失配量的生成</p>
+<pre><code class="language-MATLAB">clc
+clear;
+
+mpc=case39;
+node=length(mpc.bus(:,1));% number of nodes
+nbranch=length(mpc.branch(:,1));% number of branch
+tic
+%% Generate Y matrix
+yN=makeYbus(mpc);
+G=real(yN);
+B=imag(yN);
+%% Process PQ, PV nodes
+Vdelta=find(mpc.bus(:,2)==3);% Vdelta
+PQ=find(mpc.bus(:,2)==1);   % PQ bus
+PV=find(mpc.bus(:,2)==2);   % PV bus
+n0=find(mpc.bus(:,2)&lt;3);    
+
+%% Get information from mpc.
+nVdelta=length(Vdelta);      % number of vdelta node
+nPQ=length(PQ);              % number of PQ nodes
+nPV=length(PV);                 % number of PV nodes
+V=mpc.bus(:,8);
+delta=deg2rad(mpc.bus(:,9));  % angle(bus给的是角度，需要换算成弧度)
+Pgen=zeros(node,1);
+Qgen=zeros(node,1);
+Pgen(mpc.gen(:,1))=mpc.gen(:,2);
+Qgen(mpc.gen(:,1))=mpc.gen(:,3);
+P_net=(Pgen-mpc.bus(:,3))./mpc.baseMVA; % 节点功率净输入量
+Q_net=(Qgen-mpc.bus(:,4))./mpc.baseMVA;
+tol_max=1e-8;    % tolerance of the solution
+
+%% Iterative method Newton Raphson
+tolerance=1; 
+count=0;
+start=datetime(&quot;now&quot;);
+while (tolerance&gt;tol_max)
+    [P_cal,Q_cal]=cal_power(G,B,node,delta,V); % this function calculates the power
+    [mismatch_PQ]=mismatch_Power(P_net,Q_net,P_cal,Q_cal,PQ,n0); % this function gets the mismatch power
+    % Jacobian Matrix
+    [J]=gen_Jacobi(nPQ,nPV,G,B,V,delta,PQ,n0,Vdelta); 
+    mismatch_X=J\mismatch_PQ;
+    ddelta=mismatch_X(1:node-1);
+    dV=mismatch_X(node:end);
+    %Update V and delta
+    delta(n0)=delta(n0)+ddelta;
+    V(PQ)=V(PQ)+dV;
+    tolerance=max(abs(mismatch_PQ));
+    count=count+1;
+end
+endl=datetime(&quot;now&quot;);
+time=endl-start;
+%% 计算线路功率和节点功率
+
+% sdelta=-(delta*180/pi+3);
+% delta=sdelta*pi/180;
+sdelta=delta.*180/pi;
+Vm = V.*exp(1j*delta);
+I=yN*Vm;
+S=Vm.*conj(I);
+P_node=zeros(1,nPV+1);
+Q_node=zeros(1,nPV+1);
+
+% PV和Vdelta节点功率
+for k=1:length(mpc.gen(:,1))
+    P_node(k)=real(S(k))+mpc.gen(k,2);
+    Q_node(k)=imag(S(k))+mpc.gen(k,3);
+end
+PQ_res=P_node+Q_node.*1j;
+toc
+disp(&quot;=========节点功率========&quot;)
+disp(PQ_res.*mpc.baseMVA);
+% 支路功率
+for k=1:node
+    for m=1:node
+        Ss(k,m)=Vm(k)*conj((Vm(k)-Vm(m))*yN(k,m));
+   end
+end
+[l1,u1]=lu(Ss);
+disp(&quot;==========支路功率===========&quot;)
+% Define active and reactive power flows
+Pij=real(u1);
+Qij=imag(u1);
+Pji=real(l1);
+Qji=imag(l1);
+disp(&quot;============frombus to tobus===============&quot;)
+disp(sparse(Pij+1j.*Qij).*mpc.baseMVA);
+disp(&quot;============tobus to frombus===============&quot;)
+disp(sparse(Pji+1j.*Qji).*mpc.baseMVA);
+
+
+disp(&quot;============节点电压=============&quot;)
+disp(sparse(V))
+disp(&quot;============电压相角=============&quot;)
+disp(sparse(sdelta))
+
+disp(&quot;===========总损耗===========&quot;)
+disp(-sum(Ss(:)).*mpc.baseMVA);
+disp(&quot;============================&quot;)
+disp(['运行时间: ',num2str(toc)]);
+% 
+% tic
+% result1 = runpf(mpc,mpoption('pf.alg','NR','pf.tol',1e-8));
+% toc
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="历年考试题选编"><a class="header" href="#历年考试题选编">历年考试题选编</a></h1>
+<p>参考书:</p>
+<ol>
+<li>《电力系统分析》上下， 何仰赞</li>
+<li>《电力系统分析要点与习题》， 主编韦钢 ; 编写符杨, 曹炜, 阎晓霞</li>
+</ol>
+<p>题目每年会变，但也有一定量的题目是重复的，所以可以参考历年的题目进行复习。</p>
+<h2 id="判断题"><a class="header" href="#判断题">判断题</a></h2>
+<h3 id="稳态"><a class="header" href="#稳态">稳态</a></h3>
+<ol>
+<li>发电机、输电线路和继电保护都属于电力系统的一次系统</li>
+<li>现代电力系统是由发电机、变压器、电力线路和负荷等电力设备组成的三相交流系统。</li>
+<li>频率为 50HZ 的单相交流系统中，若瞬时功率存在无功分量，则该无功分量的交变频率也为 50HZ</li>
+<li>日负荷曲线中，峰谷差越大，电力系统的运行难度越大。</li>
+<li>变压器 $\Pi$ 型等值电路中，两个并联阻抗的符号相反，负号出现在电压等级高的一侧。</li>
+<li>电力系统越大，系统频率越难稳定。</li>
+<li>PQ 分解法的收敛精度比 N-R 法差</li>
+<li>三相交流电路传送的复功率是交变的</li>
+<li>等容量下并联电容补偿降损效果比并联补偿要强</li>
+<li>系统中接地线串入一个阻抗，正序参数不变，负序和零序都变化</li>
+<li>在我国，500kV 线路通常用于省际的电力传输。</li>
+<li>在潮流计算中，牛顿—拉夫逊法的收敛速度通常比 P—Q 分解法快。</li>
+<li>已知网络的导纳参数，给定同一侧的复功率和电压幅值，通过递推计算，就可以精确计算出开式网的潮流分布。</li>
+<li>当网络中有节点互不连通时，阻抗矩阵中将出现零元。</li>
+<li>装机容量越大，系统频率越难稳定</li>
+<li>紧凑型输电能让线路电抗减小。</li>
+<li>开式网络结构简单，供电可靠性高。</li>
+<li>互联大电网有助于减少总装机容量和备用容量。</li>
+<li>增加日负荷曲线的峰谷差有助于提高电网运行经济性。</li>
+<li>装机容量越大，电力系统频率越难稳定。</li>
+<li>视在功率可以直接相加，而复功率不能直接相加。</li>
+<li>在三相平衡交流电力系统中，输电线路上输送的三相总功率是交变的。</li>
+</ol>
+<h3 id="暂态"><a class="header" href="#暂态">暂态</a></h3>
+<ol>
+<li>理想电机转子以额定转速 $ \omega $ 旋转，定子绕组之间的互感以及定、转子绕组之间的互感都是时变的，但前者周期为 2$\pi$ 而后者周期为 $\pi$ 。</li>
+<li>输电线路的零序电抗总是比其正序电抗大。</li>
+<li>电力系统故障后通常忽略负序分量和零序分量对稳定性的影响，因此负序网络和零序网络参数对稳定性的影响也可以忽略。</li>
+<li>为了使单电源网络相间短路装设的一、二、三段过电流保护具有选择性，所以第一段过电流保护不能保护线路的全长。</li>
+<li>电力系统是非线性系统，所以不能采用线性化的方法分析其静态稳定性。</li>
+<li>定子绕组自感和他们之间的互感都是随着定转子相对角度变化而变化的</li>
+<li>发电机正序参量和零序参量不随定子旋转而变化，但是负序参量变化</li>
+<li>电力系统能够运行在某个状态，这个点是静态稳定点</li>
+<li>同步发电机三相短路时，定子电流周期分量的起始值与转子在短路发生瞬间的位置 $ \theta_0 $, 而与它对应的转子绕组中电流直流分量的起始值与 $ \theta_0 $ 无关。</li>
+<li>在中性点接地的对称三相电力系统中，如果在中性点与地之间串联接入一电抗 $ X $, 则系统的正序阻抗不变，而负序与零序阻抗会发生变化。</li>
+<li>无穷大电源短路后，短路电流的周期分量和非周期分量都会衰减。</li>
+<li>电力系统静态稳定分析可以采用线性化方法分析，只要根据线性化后方程的特征根即可判定电力系统在该平衡点是否静态稳定。</li>
+<li>单机无穷大系统中，如果同步发电机内电势 $ E_q $ 为零，则同步发电机就无法送出有功功率。</li>
+<li>(纵向故障)单线断线、两线断线的复合序网是三序并联。</li>
+<li>电力系统稳定性包括功角、电压、频率稳定，可能交织出现。</li>
+<li>对发电机线性化之后得到微分方程组的特征根实部为负，则系统静态稳定。</li>
+<li>静态稳定性跟平衡点和扰动有关。</li>
+<li>有一个地方它电流有三相ABC，其中A相比B相领先120度，B相比C相领先120度，这个三相电流于是没有负序和零序分量。</li>
+<li>Park 变换的元素是时不变的，是线性变换。</li>
+<li>对一个非线性自治系统，如果能够找到大扰动稳定的通用分析方法，就可以不再进行小扰动稳定分析了。</li>
+<li>同步电机 abc 三相数学模型经过经典派克变换后电感矩阵的有名值是对称的。</li>
+<li>同步发电机突然发生三相短路后，定子绕组中含有基波周期交流、直流分量，以及其他分量。</li>
+<li>在输送功率一定时，功率极限越大，静态稳定储备系数越小</li>
+</ol>
+<h2 id="简答题"><a class="header" href="#简答题">简答题</a></h2>
+<ol>
+<li>请从功率平衡的角度，分析为何在我国的北方省份，冬季弃风问题会更严重？</li>
+<li>已知一个电力系统包含两个不同的电压等级（$ U_{N1} $ 和 $ U_{N2} $ ），系统中接入了一个升压变压器（电源侧）和一个降压变压器（负荷侧），那么这两台变压器的额定变比（高压/低压），谁的更大？为什么？</li>
+<li>试举出以新能源为主体新型电力系统与传统电力系统在动态特性和稳定性方面的区别（不少于三方面）。</li>
+<li>Jacobi 矩阵中哪些元素不随着迭代过程变化？哪些元素在变化？哪些元素影响较大？为什么？</li>
+<li>怎样提高输电系统的静态稳定性？给出不少于两条措施并解释原因</li>
+<li>分析比较串补和并补的原理</li>
+<li>如果潮流计算结束时平衡点 P 越上限应如何处理使之不越, Q 越了呢？</li>
+<li>无功优化为什么能降低网损？这种“优化”的电压分布应该具有什么特点，为什么？</li>
+<li>负荷增加后，通过一次调频和二次调频后，系统频率比初始频率高，试用几何图解法简述其过程。</li>
+<li>试简述为什么可以利用对称分量法分析计算电力系统不对称故障。</li>
+<li>试用单机无穷大系统功角特性曲线解释等面积定则。</li>
+<li>Park 变换的原理</li>
+<li>同步电机绕组自感互感中哪些是时变的，哪些是时不变的？时变的周期是多少？</li>
+</ol>
+<h2 id="计算题"><a class="header" href="#计算题">计算题</a></h2>
+<p>必考题: 牛拉法，调频，短路电流的计算，复合序网制定和极限切除角，节点导纳矩阵的计算。</p>
+<p>近些年的大题模式基本不变，最后一道题和讲义上的最后一道题基本一致，可以对照讲义上的题目做一做</p>
+<p>可以参考《电力系统分析要点与习题》的计算题进行训练</p>
+<h2 id="选择题"><a class="header" href="#选择题">选择题</a></h2>
+<p>选择题重概念，复习时和判断题一并复习即可</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+    </body>
+</html>
